@@ -21,3 +21,12 @@ h1 {
   position: fixed;
   left: 30%;
 }
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  line-height: 100%;
+  height: 100%;
+  margin: 0;
+}
+.SignIn {
+  border: 5px;
+}

@@ -1,23 +1,9 @@
-/* Reset some default styles */
-/* body,
-h1,
-h2,
-h3,
-p,
-ul,
-ol,
-li {
-  margin: 0;
-  padding: 0;
-} */
-
 body {
   font-family: "Roboto", Arial, sans-serif;
   line-height: 100%;
   height: 100%;
   margin: 0;
 }
-
 body::before {
   content: "";
   position: absolute;
@@ -31,9 +17,9 @@ body::before {
   filter: blur(5px);
   z-index: -1;
 }
-h1 {
+/* h1 {
   padding-bottom: 20px;
-}
+} */
 /* Styling for the header */
 header {
   background-color: #02305d;
