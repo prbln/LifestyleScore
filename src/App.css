@@ -1,0 +1,23 @@
+.loan {
+  justify-items: center;
+  background-color: #02305db6;
+  color: rgb(255, 255, 255);
+  padding: 50px;
+  margin-left: 110px;
+  position: relative;
+  margin-top: 50px;
+  width: 400px;
+  height: 200px;
+}
+.loan:hover {
+  background-color: #02305d;
+}
+h1 {
+  background-color: #02305d;
+  border-radius: 5px;
+}
+.main {
+  align-items: center;
+  position: fixed;
+  left: 30%;
+}
