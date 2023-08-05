@@ -11,6 +11,7 @@ import { Footer } from "./components/Navigation/Footer";
 import { useAuth0 } from "@auth0/auth0-react";
 import Profile from "./components/login/profile";
 import SignIn from "./components/login/SignIn";
+import Score from "./components/LifestyleScore/Score";
 
 const App = () => {
   const { isAuthenticated } = useAuth0();
@@ -21,10 +22,13 @@ const App = () => {
         <>
           <MenuBar />
           <SideBar />
-          <div className="main">
-            <Personal />
-            <Med />
-          </div>
+          {false && (
+            <div className="main">
+              <Personal />
+              <Med />
+            </div>
+          )}
+          {true && <Score />}
           <Footer />{" "}
         </>
       ) : (

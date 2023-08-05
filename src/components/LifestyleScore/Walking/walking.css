@@ -1,0 +1,52 @@
+.react-calendar-heatmap .color-scale-1 {
+  fill: #c20000;
+}
+
+.react-calendar-heatmap .color-scale-2 {
+  fill: #004506;
+}
+
+/* body {
+  /* background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); 
+  backdrop-filter: blur(8px); 
+  z-index: 999; 
+  display: none;
+} */
+#heatmap-container {
+  display: grid;
+  /* grid-template-rows: auto; */
+  position: relative;
+  top: 0%;
+  /* left: 10%; */
+  width: 100%;
+  height: 100%;
+  justify-content: normal; /* Or use "flex-start" if you want the content aligned to the top */
+  align-content: center;
+  align-items: center;
+  background-color: #ffffff; /* You can change the background color as needed */
+  /* border: 5px solid #ccc; */
+  /* padding: 10px; */
+  z-index: 999;
+}
+
+#close {
+  position: absolute;
+  top: 0%;
+  right: 1%;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.plot {
+  margin: 10px;
+}
+h3 {
+  align-items: center;
+}
