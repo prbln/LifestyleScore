@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/LifeStyleScore/static/css/main.472d59f2.css",
+    "main.js": "/LifeStyleScore/static/js/main.e5d15cd6.js",
+    "index.html": "/LifeStyleScore/index.html",
+    "main.472d59f2.css.map": "/LifeStyleScore/static/css/main.472d59f2.css.map",
+    "main.e5d15cd6.js.map": "/LifeStyleScore/static/js/main.e5d15cd6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.472d59f2.css",
+    "static/js/main.e5d15cd6.js"
+  ]
+}

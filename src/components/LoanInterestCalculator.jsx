@@ -8,10 +8,10 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { TextField } from "@mui/material";
 import SpanningTable from "./SpanningTable";
-
+import { scoreContext } from "../context";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -51,6 +51,7 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function CustomizedDialogs({ open, setOpen, alert, setalert }) {
+  const { registered, setregistered } = useContext(scoreContext);
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -139,7 +140,7 @@ export default function CustomizedDialogs({ open, setOpen, alert, setalert }) {
             )}
             {interestRate !== null && (
               <Typography variant="h6" sx={{ ml: 25, mt: 2 }}>
-                Interest Rate: {interestRate}%
+                Interest Rate: {registered ? interestRate : interestRate - 0.5}%
               </Typography>
             )}
           </form>

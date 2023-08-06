@@ -5,7 +5,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
+import { scoreContext, homeContext } from "../context";
+import { useContext } from "react";
 function priceRow(qty, unit) {
   return qty * unit;
 }
@@ -27,17 +28,22 @@ export default function SpanningTable({
   interestRate,
   setInterestRate,
 }) {
+  const { registered, setregistered } = useContext(scoreContext);
   const x = loanAmount > 10000 ? 7 : 10;
   setInterestRate(x);
   const rows = [
     createRow("Principle", `\$${loanAmount}`),
     createRow("Time", `${timeFrame} months`),
-    createRow("Credit Score", 800),
-    createRow("Lifestyle Score", 0),
+    createRow("Credit Score", 700),
+    createRow("Lifestyle Score", `${registered ? 0 : 5}`),
     createRow("Interest rate", `${interestRate}%`),
   ];
-  const decimalInterest = interestRate / 100;
-  const monthlyRate = Math.pow(1 + interestRate, timeFrame);
+  const decimalInterest =
+    (registered ? interestRate : interestRate - 0.5) / 100;
+  const monthlyRate = Math.pow(
+    1 + (registered ? interestRate : interestRate - 0.5),
+    timeFrame
+  );
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 400 }} aria-label="spanning table">
@@ -53,7 +59,7 @@ export default function SpanningTable({
             <TableCell rowSpan={3} />
             <TableCell colSpan={1}>Final Interest</TableCell>
             <TableCell align="left" colSpan={1}>
-              {`${interestRate}%`}
+              {`${registered ? interestRate : interestRate - 0.5}%`}
             </TableCell>
           </TableRow>
           <TableRow>
@@ -67,9 +73,7 @@ export default function SpanningTable({
           <TableRow>
             <TableCell colSpan={1}>Monthly </TableCell>
             <TableCell align="left" colSpan={1}>
-              {`\$${Math.round(
-                (loanAmount * decimalInterest * monthlyRate) / (monthlyRate - 1)
-              )}`}
+              {`\$${Math.round(loanAmount / 12)}`}
             </TableCell>
           </TableRow>
         </TableBody>
