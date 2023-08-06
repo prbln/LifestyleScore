@@ -1,4 +1,11 @@
+import { useContext } from "react";
+import { homeContext } from "../../context";
 export const MenuBar = () => {
+  const { home, sethome } = useContext(homeContext);
+  const onclickHome = () => {
+    sethome(true);
+  };
+
   return (
     <header>
       <div class="header-content">
@@ -8,7 +15,7 @@ export const MenuBar = () => {
         <nav>
           <ul>
             <li>
-              <a href="#">Home</a>
+              <a onClick={onclickHome}>Home</a>
             </li>
             <li>
               <a href="#">About</a>

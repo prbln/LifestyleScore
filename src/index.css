@@ -17,10 +17,6 @@ body::before {
   filter: blur(5px);
   z-index: -1;
 }
-/* h1 {
-  padding-bottom: 20px;
-} */
-/* Styling for the header */
 header {
   background-color: #02305d;
   color: #ffffff;

@@ -12,31 +12,36 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Profile from "./components/login/profile";
 import SignIn from "./components/login/SignIn";
 import Score from "./components/LifestyleScore/Score";
+import { scoreContext, homeContext } from "./context";
 
 const App = () => {
   const { isAuthenticated } = useAuth0();
-
+  const [registered, setregistered] = useState(true);
+  const [home, sethome] = useState(true);
   return (
-    <div>
-      {isAuthenticated ? (
-        <>
-          <MenuBar />
-          <SideBar />
-          {false && (
-            <div className="main">
-              <Personal />
-              <Med />
-            </div>
-          )}
-          {true && <Score />}
-          <Footer />{" "}
-        </>
-      ) : (
-        <main className="SignIn">
-          <SignIn />
-        </main>
-      )}
-    </div>
+    <scoreContext.Provider value={{ registered, setregistered }}>
+      <homeContext.Provider value={{ home, sethome }}>
+        {isAuthenticated ? (
+          <>
+            <MenuBar />
+            <SideBar />
+            {home ? (
+              <div className="main">
+                <Personal />
+                <Med />
+              </div>
+            ) : (
+              <Score />
+            )}
+            <Footer />{" "}
+          </>
+        ) : (
+          <main className="SignIn">
+            <SignIn />
+          </main>
+        )}
+      </homeContext.Provider>
+    </scoreContext.Provider>
   );
 };
 
